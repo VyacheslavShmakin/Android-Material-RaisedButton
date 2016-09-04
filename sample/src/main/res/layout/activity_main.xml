@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ru.shmakinv.android.sample.MainActivity">
+
+    <ru.shmakinv.android.widget.material.raisedbutton.RaisedButton
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_raised_button_blue"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/button_name"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:rb_cornerRadius="@dimen/corner_radius"
+        app:rb_innerPaddingLeft="@dimen/inner_padding_horizontal"
+        app:rb_innerPaddingRight="@dimen/inner_padding_horizontal"
+        app:rb_innerPaddingTop="@dimen/inner_padding_vertical"
+        app:rb_innerPaddingBottom="@dimen/inner_padding_vertical"
+        app:rb_elevation="2dp"
+        app:rb_maxElevation="8dp"
+        app:typeface="roboto_regular"/>
+</RelativeLayout>

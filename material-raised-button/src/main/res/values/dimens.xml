@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="def_rb_button_corner_radius">2dp</dimen>
+    <dimen name="def_rb_button_elevation">2dp</dimen>
+    <dimen name="def_rb_button_max_elevation">8dp</dimen>
+    <dimen name="def_rb_button_padding">0dp</dimen>
+</resources>

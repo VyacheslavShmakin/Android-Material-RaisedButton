@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="@color/button_raised_pressed">
+
+    <item>
+        <selector>
+            <item android:state_enabled="false">
+                <color android:color="@color/button_raised_disabled" />
+            </item>
+
+            <item android:state_enabled="true">
+                <color android:color="@color/button_raised_normal" />
+            </item>
+        </selector>
+    </item>
+</ripple>
