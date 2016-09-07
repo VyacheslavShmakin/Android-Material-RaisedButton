@@ -57,7 +57,8 @@ public class RaisedButton extends FrameLayout {
             android.R.attr.maxHeight,
             android.R.attr.textColor,
             android.R.attr.textSize,
-            android.R.attr.text};
+            android.R.attr.text,
+            android.R.attr.enabled};
 
     protected OnTouchListener mElevationUpdateCallback = new OnTouchListener() {
         @Override
@@ -191,6 +192,9 @@ public class RaisedButton extends FrameLayout {
                     case android.R.attr.text:
                         mButton.setText(appearance.getString(index));
                         break;
+                    case android.R.attr.enabled:
+                        setEnabled(appearance.getBoolean(index, true));
+                        break;
                 }
             }
             appearance.recycle();
@@ -239,8 +243,13 @@ public class RaisedButton extends FrameLayout {
     }
 
     @Override
-    public void setPadding(int left, int top, int right, int bottom) {
-        super.setPadding(left, top, right, bottom);
+    public void setEnabled(boolean enabled) {
+        mButton.setEnabled(enabled);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return mButton.isEnabled();
     }
 
     protected void initCustomAttributes(@NonNull Context context, @NonNull AttributeSet attrs) {
