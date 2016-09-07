@@ -1,7 +1,6 @@
 # Material-Raised-Button
 The library that implements material raised button widget according with Material guidelines.  
 View based on [RobotoTextView library](https://github.com/johnkil/Android-RobotoTextView) and CardView.  
-Elevation works on 15+ API because it based on CardView's elevation parameter:)
 
 **Jelly Bean**  
 ![](https://github.com/VyacheslavShmakin/Android-Material-RaisedButton/blob/master/sample/demo_jelly_bean.gif)
@@ -73,9 +72,10 @@ R.attr.rb_innerPaddingBottom
 
 **NOTE**  
 **1.** InnerPaddings, InnerPaddingLeft, InnerPaddingTop, InnerPaddingRight, InnerPaddingBottom - defines padding inside button (between text and its borders on each side);  
-InnerPaddings parameter automatically excludes separate paddings (Left, Top, Right, Bottom);  
-**2.** CornerRadius parameter will work only on **21+ API**.  
-To provide corner radius on **pre-Lollipop APIs** you should use specific drawable with rounded corners;
-So to provide corner radius on all APIs you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)
+**2.** InnerPaddings parameter automatically excludes separate paddings (Left, Top, Right, Bottom);  
+**3.** CornerRadius parameter will work only on **21+ API**.  
+**4.** To provide corner radius on **pre-Lollipop APIs** you should use specific drawable with rounded corners;  
+  
+So if you wanna provide corner radius on **15+ APIs** you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)
 
 
