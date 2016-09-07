@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ import java.util.Arrays;
 /**
  * RaisedButton
  *
- * @author BlackE
+ * @author Vyacheslav Shmakin
  * @version 28.08.2016
  */
 public class RaisedButton extends FrameLayout {
@@ -183,7 +184,9 @@ public class RaisedButton extends FrameLayout {
                         }
                         break;
                     case android.R.attr.textSize:
-                        mButton.setTextSize(appearance.getDimensionPixelSize(index, 0));
+                        mButton.setTextSize(
+                                TypedValue.COMPLEX_UNIT_PX,
+                                appearance.getDimensionPixelSize(index, 0));
                         break;
                     case android.R.attr.text:
                         mButton.setText(appearance.getString(index));
