@@ -33,7 +33,7 @@ Usage
 -----
 #### In Code
 It's just simple view so you can use all standard methods.
-You just have an additional methods.
+You just have an additional methods that can be used to configure view parameters programmatically.
 ``` java
 RaisedButton rbtn = ...;
 CardView currentCardView = rbtn.getRootView();
@@ -76,6 +76,6 @@ R.attr.rb_innerPaddingBottom
 **3.** CornerRadius parameter will work only on **21+ API**.  
 **4.** To provide corner radius on **pre-Lollipop APIs** you should use specific drawable with rounded corners;  
 So if you wanna provide corner radius on **15+ APIs** you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)  
-**5.** If you set **rb_elevation** and **rb_maxElevation** parameters to **zero dp** and set correct drawable resource then you will be able to use RaisedButton as [**Flat button**](https://material.google.com/components/buttons.html#buttons-flat-buttons);
+**5.** If you set **rb_elevation** and **rb_maxElevation** parameters to **0dp** and set correct drawable resource then you will be able to use RaisedButton as [**Flat button**](https://material.google.com/components/buttons.html#buttons-flat-buttons);
 
 
