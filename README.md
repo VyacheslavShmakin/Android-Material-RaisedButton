@@ -32,7 +32,7 @@ Maven:
 Usage
 -----
 #### In Code
-It's just simple view so you can use all standard methods.
+It's just simple view so you can use all standard methods.  
 You just have an additional methods that can be used to configure view parameters programmatically.
 ``` java
 RaisedButton rbtn = ...;
