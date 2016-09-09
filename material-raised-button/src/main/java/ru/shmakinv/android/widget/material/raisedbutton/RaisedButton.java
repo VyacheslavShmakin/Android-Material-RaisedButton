@@ -63,6 +63,11 @@ public class RaisedButton extends FrameLayout {
     protected OnTouchListener mElevationUpdateCallback = new OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent event) {
+            if (mDefaultElevation == mMaxElevation) {
+                // No elevation animation
+                return false;
+            }
+
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     mLanded = false;
@@ -210,8 +215,12 @@ public class RaisedButton extends FrameLayout {
 
         if (mButtonWidth != null && mButtonHeight != null) {
             ViewGroup.LayoutParams rootParams = mRootView.getLayoutParams();
-            rootParams.height = mButtonHeight;
-            rootParams.width = mButtonWidth;
+            int rootHeight = mButtonHeight >= 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : mButtonHeight;
+            int rootWidth = mButtonWidth >= 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : mButtonWidth;
+
+            rootParams.height = rootHeight;
+            rootParams.width = rootWidth;
+
             mRootView.setLayoutParams(rootParams);
 
             ViewGroup.LayoutParams params = mButton.getLayoutParams();
@@ -219,6 +228,16 @@ public class RaisedButton extends FrameLayout {
             params.width = mButtonWidth;
             mButton.setLayoutParams(params);
         }
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        ViewGroup.LayoutParams rootViewParams = mRootView.getLayoutParams();
+        ViewGroup.LayoutParams param = getLayoutParams();
+        param.height = rootViewParams.height;
+        param.width = rootViewParams.width;
+        setLayoutParams(param);
     }
 
     @SuppressWarnings("deprecation")

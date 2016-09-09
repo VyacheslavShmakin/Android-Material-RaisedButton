@@ -14,7 +14,7 @@ Download
 Gradle:
 
 ```groovy
-compile 'com.github.VyacheslavShmakin:material-raised-button:1.0.1'
+compile 'com.github.VyacheslavShmakin:material-raised-button:1.0.2'
 ```
 
 Maven:
@@ -23,7 +23,7 @@ Maven:
 <dependency>
     <groupId>com.github.VyacheslavShmakin</groupId>
     <artifactId>material-raised-button</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <type>aar</type>
 </dependency>
 ```
@@ -75,7 +75,7 @@ R.attr.rb_innerPaddingBottom
 **2.** InnerPaddings parameter automatically excludes separate paddings (Left, Top, Right, Bottom);  
 **3.** CornerRadius parameter will work only on **21+ API**.  
 **4.** To provide corner radius on **pre-Lollipop APIs** you should use specific drawable with rounded corners;  
-  
-So if you wanna provide corner radius on **15+ APIs** you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)
+So if you wanna provide corner radius on **15+ APIs** you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)  
+**5.** If you set **rb_elevation** and **rb_maxElevation** parameters to **zero dp** and set correct drawable resource then you will be able to use RaisedButton as [**Flat button**](https://material.google.com/components/buttons.html#buttons-flat-buttons);
 
 

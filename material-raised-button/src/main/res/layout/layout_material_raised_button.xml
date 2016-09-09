@@ -12,8 +12,7 @@
     app:cardMaxElevation="@dimen/def_rb_button_max_elevation"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true"
-    tools:ignore="RtlHardcoded"
-    tools:visibility="visible">
+    tools:ignore="RtlHardcoded">
 
     <com.devspark.robototextview.widget.RobotoButton
         android:id="@+id/rb_button"
