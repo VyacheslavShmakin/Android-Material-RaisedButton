@@ -31,6 +31,7 @@ public class RaisedButton extends FrameLayout {
 
     protected CardView mRootView;
     protected RobotoButton mButton;
+    protected View.OnClickListener mOnClickListener;
 
     protected Integer mButtonHeight;
     protected Integer mButtonWidth;
@@ -134,6 +135,7 @@ public class RaisedButton extends FrameLayout {
         mRootView = (CardView) findViewById(R.id.rb_root);
         mButton = (RobotoButton) findViewById(R.id.rb_button);
         initResources(context, attrs);
+        mButton.setOnClickListener(mButtonClickListener);
         mButton.setOnTouchListener(mElevationUpdateCallback);
     }
 
@@ -338,7 +340,16 @@ public class RaisedButton extends FrameLayout {
 
     @Override
     public void setOnClickListener(OnClickListener l) {
-        mButton.setOnClickListener(l);
+        mOnClickListener = l;
     }
+
+    protected View.OnClickListener mButtonClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (mOnClickListener != null) {
+                mOnClickListener.onClick(RaisedButton.this);
+            }
+        }
+    };
 }
 
