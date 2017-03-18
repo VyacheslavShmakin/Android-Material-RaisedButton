@@ -14,7 +14,7 @@ Download
 Gradle:
 
 ```groovy
-compile 'com.github.VyacheslavShmakin:material-raised-button:1.0.3'
+compile 'com.github.VyacheslavShmakin:material-raised-button:1.0.4'
 ```
 
 Maven:
@@ -23,7 +23,7 @@ Maven:
 <dependency>
     <groupId>com.github.VyacheslavShmakin</groupId>
     <artifactId>material-raised-button</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <type>aar</type>
 </dependency>
 ```
