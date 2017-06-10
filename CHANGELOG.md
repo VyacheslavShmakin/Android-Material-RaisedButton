@@ -1,5 +1,12 @@
 Change Log
 ==========
+## Version 1.0.6
+
+_2017-06-10_
+
+ * Support libraries were updated to actual.
+ 
+ 
 ## Version 1.0.5
 
 _2017-05-06_
