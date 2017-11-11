@@ -1,5 +1,15 @@
 Change Log
 ==========
+## Version 1.1.0
+
+_2017-11-11_
+
+ * Support libraries were updated to actual;
+ * Custom fonts supported now (App compat library required);
+ * MinSdk migrated to API 16;
+ * RobotoTextView library dependency removed;
+
+
 ## Version 1.0.6
 
 _2017-06-10_

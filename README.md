@@ -14,7 +14,7 @@ Download
 Gradle:
 
 ```groovy
-compile 'com.github.VyacheslavShmakin:material-raised-button:1.0.5'
+compile 'com.github.VyacheslavShmakin:material-raised-button:1.1.0'
 ```
 
 Maven:
@@ -23,7 +23,7 @@ Maven:
 <dependency>
     <groupId>com.github.VyacheslavShmakin</groupId>
     <artifactId>material-raised-button</artifactId>
-    <version>1.0.5</version>
+    <version>1.1.0</version>
     <type>aar</type>
 </dependency>
 ```
@@ -37,7 +37,7 @@ You just have an additional methods that can be used to configure view parameter
 ``` java
 RaisedButton rbtn = ...;
 CardView currentCardView = rbtn.getRootView();
-RobotoButton currentRobotoButton = rbtn.getButtonView();
+Button currentRobotoButton = rbtn.getButtonView();
 ```
 
 #### In XML
@@ -57,6 +57,7 @@ android.R.attr.textColor
 android.R.attr.textSize
 android.R.attr.text
 android.R.attr.enabled
+android.R.attr.fontFamily
 ```
 RaisedButton's xml parameters:
 ``` xml
@@ -73,9 +74,10 @@ R.attr.rb_innerPaddingBottom
 **NOTE**  
 **1.** InnerPaddings, InnerPaddingLeft, InnerPaddingTop, InnerPaddingRight, InnerPaddingBottom - defines padding inside button (between text and its borders on each side);  
 **2.** InnerPaddings parameter automatically excludes separate paddings (Left, Top, Right, Bottom);  
-**3.** CornerRadius parameter will work only on **21+ API**.  
+**3.** CornerRadius parameter will work only on **21+ API**;  
 **4.** To provide corner radius on **pre-Lollipop APIs** you should use specific drawable with rounded corners;  
-So if you wanna provide corner radius on **15+ APIs** you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)  
-**5.** If you set **rb_elevation** and **rb_maxElevation** parameters to **0dp** and set correct drawable resource then you will be able to use RaisedButton as [**Flat button**](https://material.google.com/components/buttons.html#buttons-flat-buttons);
+So if you wanna provide corner radius on **16+ APIs** you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)  
+**5.** If you set **rb_elevation** and **rb_maxElevation** parameters to **0dp** and set correct drawable resource then you will be able to use RaisedButton as [**Flat button**](https://material.google.com/components/buttons.html#buttons-flat-buttons);;  
+**6.** You are able set any font by using [**Android Developers guide**](https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html#using-support-lib)
 
 

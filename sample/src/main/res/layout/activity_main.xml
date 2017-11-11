@@ -28,5 +28,5 @@
         app:rb_innerPaddingBottom="@dimen/inner_padding_vertical"
         app:rb_elevation="2dp"
         app:rb_maxElevation="8dp"
-        app:typeface="roboto_regular"/>
+        android:fontFamily="@font/roboto_medium"/>
 </RelativeLayout>

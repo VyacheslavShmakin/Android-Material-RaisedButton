@@ -1,34 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="RaisedButton">
-        <attr name="rb_cornerRadius" format="dimension"/>
-        <attr name="rb_elevation" format="dimension"/>
-        <attr name="rb_maxElevation" format="dimension"/>
-        <attr name="rb_innerPaddingLeft" format="dimension"/>
-        <attr name="rb_innerPaddingRight" format="dimension"/>
-        <attr name="rb_innerPaddingTop" format="dimension"/>
-        <attr name="rb_innerPaddingBottom" format="dimension"/>
-        <attr name="rb_innerPaddings" format="dimension"/>
+        <attr name="rb_cornerRadius" format="dimension|reference"/>
+        <attr name="rb_elevation" format="dimension|reference"/>
+        <attr name="rb_maxElevation" format="dimension|reference"/>
+        <attr name="rb_innerPaddingLeft" format="dimension|reference"/>
+        <attr name="rb_innerPaddingRight" format="dimension|reference"/>
+        <attr name="rb_innerPaddingTop" format="dimension|reference"/>
+        <attr name="rb_innerPaddingBottom" format="dimension|reference"/>
+        <attr name="rb_innerPaddings" format="dimension|reference"/>
+        <attr name="android:fontFamily" format="string|reference"/>
     </declare-styleable>
-
-
-
-
-    <!--
-    >
-
-    <com.devspark.robototextview.widget.RobotoButton
-        android:background="@drawable/selector_raised_button_blue"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:minWidth="@dimen/state_action_button_min_width"
-        android:paddingLeft="@dimen/state_action_button_padding_horizontal"
-        android:paddingRight="@dimen/state_action_button_padding_horizontal"
-        android:paddingBottom="@dimen/state_action_button_padding_vertical"
-        android:paddingTop="@dimen/state_action_button_padding_vertical"
-        android:textColor="@color/yota_white"
-        android:textSize="@dimen/fontsize_state_action_button"
-        app:typeface="roboto_regular"
-        tools:text="@string/activate_now_uppercase"/>-->
-
 </resources>

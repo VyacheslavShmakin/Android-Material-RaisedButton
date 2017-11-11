@@ -14,7 +14,7 @@
     app:cardUseCompatPadding="true"
     tools:ignore="RtlHardcoded">
 
-    <com.devspark.robototextview.widget.RobotoButton
+    <Button
         android:id="@+id/rb_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

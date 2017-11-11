@@ -1,13 +1,17 @@
 package ru.shmakinv.android.widget.material.raisedbutton;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -15,9 +19,8 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
-
-import com.devspark.robototextview.widget.RobotoButton;
 
 import java.util.Arrays;
 
@@ -25,12 +28,12 @@ import java.util.Arrays;
  * RaisedButton
  *
  * @author Vyacheslav Shmakin
- * @version 28.08.2016
+ * @version 11.11.2017
  */
 public class RaisedButton extends FrameLayout {
 
     protected CardView mRootView;
-    protected RobotoButton mButton;
+    protected Button mButton;
     protected View.OnClickListener mOnClickListener;
 
     protected Integer mButtonHeight;
@@ -59,9 +62,12 @@ public class RaisedButton extends FrameLayout {
             android.R.attr.textColor,
             android.R.attr.textSize,
             android.R.attr.text,
-            android.R.attr.enabled};
+            android.R.attr.enabled,
+            android.R.attr.fontFamily};
 
+    @NonNull
     protected OnTouchListener mElevationUpdateCallback = new OnTouchListener() {
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View view, MotionEvent event) {
             if (mDefaultElevation == mMaxElevation) {
@@ -110,43 +116,44 @@ public class RaisedButton extends FrameLayout {
 
     public RaisedButton(Context context) {
         super(context);
-        init(context, null);
+        init(context, null, 0, 0);
     }
 
     public RaisedButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs);
+        init(context, attrs, 0, 0);
     }
 
     public RaisedButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public RaisedButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(context, attrs);
+        init(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    @SuppressLint("ClickableViewAccessibility")
+    private void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         inflate(context, R.layout.layout_material_raised_button, this);
 
-        mRootView = (CardView) findViewById(R.id.rb_root);
-        mButton = (RobotoButton) findViewById(R.id.rb_button);
-        initResources(context, attrs);
+        mRootView = findViewById(R.id.rb_root);
+        mButton = findViewById(R.id.rb_button);
+        initResources(context, attrs, defStyleAttr, defStyleRes);
         mButton.setOnClickListener(mButtonClickListener);
         mButton.setOnTouchListener(mElevationUpdateCallback);
     }
 
-    private void initResources(@NonNull Context context, @NonNull AttributeSet attrs) {
-        initSystemAttributes(context, attrs);
+    private void initResources(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        initSystemAttributes(context, attrs, defStyleAttr, defStyleRes);
         initCustomAttributes(context, attrs);
     }
 
-    protected void initSystemAttributes(@NonNull Context context, @NonNull AttributeSet attrs) {
+    protected void initSystemAttributes(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         Arrays.sort(mAttrs);
-        final TypedArray appearance = context.obtainStyledAttributes(attrs, mAttrs, 0, 0);
+        final TypedArray appearance = context.obtainStyledAttributes(attrs, mAttrs, defStyleAttr, defStyleRes);
         if (appearance != null) {
             int count = appearance.getIndexCount();
 
@@ -202,6 +209,12 @@ public class RaisedButton extends FrameLayout {
                     case android.R.attr.enabled:
                         setEnabled(appearance.getBoolean(index, true));
                         break;
+                    case android.R.attr.fontFamily:
+                        Typeface tf = getTypeface(appearance, index);
+                        if (tf != null) {
+                            mButton.setTypeface(tf);
+                        }
+                        break;
                 }
             }
             appearance.recycle();
@@ -232,6 +245,21 @@ public class RaisedButton extends FrameLayout {
         }
     }
 
+    @Nullable
+    private Typeface getTypeface(@NonNull TypedArray array, int index) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return array.getFont(index);
+        } else {
+            return getTypefaceFromAttrs(array, index);
+        }
+    }
+
+    @Nullable
+    private Typeface getTypefaceFromAttrs(@NonNull TypedArray array, int index) {
+        int id = array.getResourceId(index, -1);
+        return ResourcesCompat.getFont(getContext(), id);
+    }
+
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -254,7 +282,7 @@ public class RaisedButton extends FrameLayout {
     }
 
     @NonNull
-    public RobotoButton getButtonView() {
+    public Button getButtonView() {
         return mButton;
     }
 
@@ -273,7 +301,7 @@ public class RaisedButton extends FrameLayout {
         return mButton.isEnabled();
     }
 
-    protected void initCustomAttributes(@NonNull Context context, @NonNull AttributeSet attrs) {
+    protected void initCustomAttributes(@NonNull Context context, @Nullable AttributeSet attrs) {
         final TypedArray attr = context.obtainStyledAttributes(attrs, R.styleable.RaisedButton);
         if (attr != null) {
             mCornerRadius = getDefauiltIfNoResource(
@@ -339,10 +367,11 @@ public class RaisedButton extends FrameLayout {
     }
 
     @Override
-    public void setOnClickListener(OnClickListener l) {
+    public void setOnClickListener(@Nullable OnClickListener l) {
         mOnClickListener = l;
     }
 
+    @NonNull
     protected View.OnClickListener mButtonClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
