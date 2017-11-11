@@ -1,6 +1,6 @@
 # Material-Raised-Button
 The library that implements material raised button widget according with Material guidelines.  
-View based on [RobotoTextView library](https://github.com/johnkil/Android-RobotoTextView) and CardView.  
+View based on [CardView](https://developer.android.com/reference/android/support/v7/widget/CardView.html).  
 
 **Jelly Bean**  
 ![](https://github.com/VyacheslavShmakin/Android-Material-RaisedButton/blob/master/sample/demo_jelly_bean.gif)
@@ -77,7 +77,7 @@ R.attr.rb_innerPaddingBottom
 **3.** CornerRadius parameter will work only on **21+ API**;  
 **4.** To provide corner radius on **pre-Lollipop APIs** you should use specific drawable with rounded corners;  
 So if you wanna provide corner radius on **16+ APIs** you should use **rb_cornerRadius** parameter in xml  (**for 21+ API**) and create specific drawable with rounded corners (**for Pre-Lollipop APIs**)  
-**5.** If you set **rb_elevation** and **rb_maxElevation** parameters to **0dp** and set correct drawable resource then you will be able to use RaisedButton as [**Flat button**](https://material.google.com/components/buttons.html#buttons-flat-buttons);;  
-**6.** You are able set any font by using [**Android Developers guide**](https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html#using-support-lib)
+**5.** If you set **rb_elevation** and **rb_maxElevation** parameters to **0dp** and set correct drawable resource then you will be able to use RaisedButton as [**Flat button**](https://material.google.com/components/buttons.html#buttons-flat-buttons);  
+**6.** You are able set any font by using [**Android Developers guide**](https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html#using-support-lib);
 
 
