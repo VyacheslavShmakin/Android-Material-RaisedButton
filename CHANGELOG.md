@@ -1,5 +1,12 @@
 Change Log
 ==========
+## Version 1.1.1
+
+_2018-01-04_
+
+ * Bumped support library;
+ 
+ 
 ## Version 1.1.0
 
 _2017-11-11_
